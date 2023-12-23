@@ -1,4 +1,15 @@
-/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/GeocellApplication.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/model/UserHomeOutputModel.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/Environment.kt
-/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/UserController.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/UserDomain.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/utils/Either.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/AuthenticatedUser.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/repository/TransactionManager.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/entities/Token.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/repository/Transaction.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/GeocellApplication.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/services/UserService.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/UserController.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/model/Problem.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/TokenValidationInfo.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/PasswordValidationInfo.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/entities/User.kt

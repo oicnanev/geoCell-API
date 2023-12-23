@@ -1,4 +1,4 @@
-package oicnanev.org.geocell
+package main.kotlin.oicnanev.org.geocell
 
 object Environment {
     fun getDbUrl() = System.getenv(KEY_DB_URL) ?: throw Exception("Missing env var $KEY_DB_URL")

@@ -1,6 +1,6 @@
-package oicnanev.org.geocell.domain
+package main.kotlin.oicnanev.org.geocell.domain
 
-import oicnanev.org.geocell.domain.entities.Token
+import main.kotlin.oicnanev.org.geocell.domain.entities.Token
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import org.springframework.security.crypto.password.PasswordEncoder

@@ -1,6 +1,6 @@
-package oicnanev.org.geocell.domain.entities
+package main.kotlin.oicnanev.org.geocell.domain.entities
 
-import oicnanev.org.geocell.domain.TokenValidationInfo
+import main.kotlin.oicnanev.org.geocell.domain.TokenValidationInfo
 import kotlinx.datetime.Instant
 
 data class Token(

@@ -1,4 +1,4 @@
-package oicnanev.org.geocell.utils
+package main.kotlin.oicnanev.org.geocell.utils
 
 /* ********************************************************************************************
  * Sealed classes represent restricted class hierarchies that provide more control over inheritance.

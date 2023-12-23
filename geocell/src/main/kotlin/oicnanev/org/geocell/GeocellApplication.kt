@@ -1,4 +1,4 @@
-package oicnanev.org.geocell
+package main.kotlin.oicnanev.org.geocell
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

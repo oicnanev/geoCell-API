@@ -1,13 +1,13 @@
-package oicnanev.org.geocell.services
+package main.kotlin.oicnanev.org.geocell.services
 
-import oicnanev.org.geocell.domain.UserDomain
-import oicnanev.org.geocell.domain.entities.Token
-import oicnanev.org.geocell.domain.entities.User
-import oicnanev.org.geocell.http.model.UserHomeOutputModel
-import oicnanev.org.geocell.repository.TransactionManager
-import oicnanev.org.geocell.utils.Either
-import oicnanev.org.geocell.utils.failure
-import oicnanev.org.geocell.utils.success
+import main.kotlin.oicnanev.org.geocell.domain.UserDomain
+import main.kotlin.oicnanev.org.geocell.domain.entities.Token
+import main.kotlin.oicnanev.org.geocell.domain.entities.User
+import main.kotlin.oicnanev.org.geocell.http.model.UserHomeOutputModel
+import main.kotlin.oicnanev.org.geocell.repository.TransactionManager
+import main.kotlin.oicnanev.org.geocell.utils.Either
+import main.kotlin.oicnanev.org.geocell.utils.failure
+import main.kotlin.oicnanev.org.geocell.utils.success
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import org.springframework.stereotype.Component

@@ -1,6 +1,6 @@
-package oicnanev.org.geocell.domain
+package main.kotlin.oicnanev.org.geocell.domain
 
-import oicnanev.org.geocell.domain.entities.User
+import main.kotlin.oicnanev.org.geocell.domain.entities.User
 
 data class AuthenticatedUser(
         val user: User,
