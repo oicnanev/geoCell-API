@@ -1,5 +1,7 @@
 package main.kotlin.oicnanev.org.geocell.services
 
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 import main.kotlin.oicnanev.org.geocell.domain.UserDomain
 import main.kotlin.oicnanev.org.geocell.domain.entities.Token
 import main.kotlin.oicnanev.org.geocell.domain.entities.User
@@ -8,13 +10,11 @@ import main.kotlin.oicnanev.org.geocell.repository.TransactionManager
 import main.kotlin.oicnanev.org.geocell.utils.Either
 import main.kotlin.oicnanev.org.geocell.utils.failure
 import main.kotlin.oicnanev.org.geocell.utils.success
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
 import org.springframework.stereotype.Component
 
 data class TokenExternalInfo(
-        val tokenValue: String,
-        val tokenExpiration: Instant
+    val tokenValue: String,
+    val tokenExpiration: Instant
 )
 
 sealed class UserCreationError {
@@ -35,9 +35,9 @@ typealias UserHomeOutputModelResult = Either<UserHomeOutputModelError, UserHomeO
 
 @Component
 class UserService(
-        private val transactionManager: TransactionManager,
-        private val userDomain: UserDomain,
-        private val clock: Clock
+    private val transactionManager: TransactionManager,
+    private val userDomain: UserDomain,
+    private val clock: Clock
 ) {
     fun createUser(username: String, password: String): UserCreationResult {
         if (userDomain.isSafePassword(password)) {
@@ -64,17 +64,17 @@ class UserService(
         return transactionManager.run {
             val userRepository = it.userRepository
             val user: User = userRepository.getUserByUsername(username)
-                    ?: return@run failure(TokenCreationError.UserOrPasswordAreInvalid)
+                ?: return@run failure(TokenCreationError.UserOrPasswordAreInvalid)
             if (!userDomain.validatePassword(password, user.passwordValidation)) {
                 return@run failure(TokenCreationError.UserOrPasswordAreInvalid)
             }
             val tokenValue = userDomain.generateTokenValue()
             val now = clock.now()
             val newToken = Token(
-                    userDomain.createTokenValidationInformation(tokenValue),
-                    user.id,
-                    createdAt = now,
-                    lastUsedAt = now
+                userDomain.createTokenValidationInformation(tokenValue),
+                user.id,
+                createdAt = now,
+                lastUsedAt = now
             )
             userRepository.createToken(newToken, userDomain.maxNumberOfTokensPerUser)
             Either.Right(TokenExternalInfo(tokenValue, userDomain.getTokenExpiration(newToken)))
@@ -86,14 +86,14 @@ class UserService(
             return null
         }
         return transactionManager.run {
-            val userRepository = it.userRepository
+            val usersRepository = it.userRepository
             val tokenValidationInfo = userDomain.createTokenValidationInformation(token)
-            val userAndToken = userRepository.getTokenByTokenValidationInfo(tokenValidationInfo)
-            if (userAndToken) != null && userDomain.isTokenTimeValid(clock, userAndToken.second) {
-                userRepository.updateTokenLastUsed(userAndToken.second, clock.now())
+            val userAndToken = usersRepository.getTokenByTokenValidationInfo(tokenValidationInfo)
+            if (userAndToken != null && userDomain.isTokenTimeValid(clock, userAndToken.second)) {
+                usersRepository.updateTokenLastUsed(userAndToken.second, clock.now())
                 userAndToken.first
             } else {
-                success(UserHomeOutputModel(id = user.id, username = user.username))
+                null
             }
         }
     }
