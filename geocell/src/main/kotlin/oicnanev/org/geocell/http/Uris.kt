@@ -4,7 +4,7 @@ import org.springframework.web.util.UriTemplate
 import java.net.URI
 
 object Uris {
-    const val PREFIX ="/api"
+    const val PREFIX = "/api"
     const val HOME = PREFIX
 
     fun home(): URI = URI(HOME)

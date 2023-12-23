@@ -16,9 +16,10 @@ class Problem(typeUri: URI) {
             .header("Content-Type", MEDIA_TYPE)
             .body<Any>(problem)
 
-        val userAlreadyExists = Problem(URI("$GIT_URI${DOCS_URI}user-already-exists"))
-        val insecurePassword = Problem(URI("$GIT_URI${DOCS_URI}insecure-password"))
-        val userOrPasswordAreInvalid = Problem(URI("$GIT_URI${DOCS_URI}user-or-password-are-invalid"))
-        val invalidRequestContent = Problem(URI("$GIT_URI${DOCS_URI}invalid-request-content"))
+        val userAlreadyExists = Problem(URI("${GIT_URI}${DOCS_URI}user-already-exists"))
+        val insecurePassword = Problem(URI("${GIT_URI}${DOCS_URI}insecure-password"))
+        val userOrPasswordAreInvalid = Problem(URI("${GIT_URI}${DOCS_URI}user-or-password-are-invalid"))
+        val invalidRequestContent = Problem(URI("${GIT_URI}${DOCS_URI}invalid-request-content"))
+        val userNotFound = Problem(URI("${GIT_URI}${DOCS_URI}user-not-found"))
     }
 }

@@ -1,5 +1,7 @@
 package main.kotlin.oicnanev.org.geocell.http
 
+import jakarta.servlet.http.Cookie
+import jakarta.servlet.http.HttpServletResponse
 import main.kotlin.oicnanev.org.geocell.domain.AuthenticatedUser
 import main.kotlin.oicnanev.org.geocell.http.model.Problem
 import main.kotlin.oicnanev.org.geocell.http.model.UserCreateInputModel
@@ -13,8 +15,6 @@ import main.kotlin.oicnanev.org.geocell.services.UserHomeOutputModelResult
 import main.kotlin.oicnanev.org.geocell.services.UserService
 import main.kotlin.oicnanev.org.geocell.utils.Failure
 import main.kotlin.oicnanev.org.geocell.utils.Success
-import jakarta.servlet.http.Cookie
-import jakarta.servlet.http.HttpServletResponse
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
@@ -30,9 +30,10 @@ class UserController(private val userService: UserService) {
         logger.info("createUser $input.username")
         val res = userService.createUser(input.username, input.password)
         return when (res) {
-            is Success -> ResponseEntity
-                .status(201)
-                .header("Location", Uris.Users.byId(res.value).toASCIIString()).build<Unit>()
+            is Success ->
+                ResponseEntity
+                    .status(201)
+                    .header("Location", Uris.Users.byId(res.value).toASCIIString()).build<Unit>()
             is Failure -> when (res.value) {
                 UserCreationError.InsecurePassword -> Problem.response(400, Problem.insecurePassword)
                 UserCreationError.UserAlreadyExists -> Problem.response(400, Problem.userAlreadyExists)
@@ -76,7 +77,7 @@ class UserController(private val userService: UserService) {
     fun getById(@PathVariable id: String): ResponseEntity<*> =
         getResponseForUserIdRequest(userService.getUserById(id))
 
-    @GetMapping(Uris.Users.Home)
+    @GetMapping(Uris.Users.HOME)
     fun getUserHome(authenticatedUser: AuthenticatedUser): ResponseEntity<*> =
         getResponseForUserIdRequest(userService.getUserHome(authenticatedUser.user.id))
 
@@ -96,9 +97,10 @@ class UserController(private val userService: UserService) {
     private fun getResponseForUserIdRequest(outputModel: UserHomeOutputModelResult): ResponseEntity<*> {
         logger.info("getUserHome $outputModel")
         return when (outputModel) {
-            is Success -> ResponseEntity
-                .status(200)
-                .body(UserHomeOutputModel(userHomeOutputModel.value.id, userHomeOutputModel.value.username))
+            is Success ->
+                ResponseEntity
+                    .status(200)
+                    .body(UserHomeOutputModel(outputModel.value.id, outputModel.value.username))
             is Failure -> when (outputModel.value) {
                 UserHomeOutputModelError.InvalidUser ->
                     Problem.response(400, Problem.userNotFound)

@@ -98,6 +98,26 @@ class UserService(
         }
     }
 
+    fun revokeToken(token: String): Boolean {
+        val tokenValidationInfo = userDomain.createTokenValidationInformation(token)
+        return transactionManager.run {
+            it.userRepository.removeTokenByValidationInfo(tokenValidationInfo)
+            true
+        }
+    }
+
+    fun getUserHome(userId: Int): UserHomeOutputModelResult {
+        return transactionManager.run {
+            val userRepository = it.userRepository
+            val user = userRepository.getUserById(userId)
+            if (user == null) {
+                failure(UserHomeOutputModelError.InvalidUser)
+            } else {
+                success(UserHomeOutputModel(id = user.id, username = user.username))
+            }
+        }
+    }
+
     fun getUserById(id: String): UserHomeOutputModelResult {
         return transactionManager.run {
             val userRepository = it.userRepository
