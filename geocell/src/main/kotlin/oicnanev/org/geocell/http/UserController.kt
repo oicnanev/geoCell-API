@@ -33,15 +33,15 @@ class UserController(private val userService: UserService) {
             is Success -> ResponseEntity
                 .status(201)
                 .header("Location", Uris.Users.byId(res.value).toASCIIString()).build<Unit>()
-            is Failure -> wher (res.value) {
-                UserCreationError.InsecurePassword -> Problem.response(400, Problem.insecurePassord)
-                UserCreationError.UserAlreadyExist -> Problem.response(400, Problem.userAlreadyExists)
+            is Failure -> when (res.value) {
+                UserCreationError.InsecurePassword -> Problem.response(400, Problem.insecurePassword)
+                UserCreationError.UserAlreadyExists -> Problem.response(400, Problem.userAlreadyExists)
             }
         }
     }
 
     @PostMapping(Uris.Users.TOKEN)
-    fun token(@RequestBody input: UserCreateTokenInputModel, response: HttpServletResponse): ResposeEntity<*> {
+    fun token(@RequestBody input: UserCreateTokenInputModel, response: HttpServletResponse): ResponseEntity<*> {
         logger.info("login $input.username")
         val res = userService.createToken(input.username, input.password)
         return when (res) {
