@@ -1,4 +1,4 @@
-package main.kotlin.oicnanev.org.geocell.jdbi
+package main.kotlin.oicnanev.org.geocell.repository.jdbi
 
 import main.kotlin.oicnanev.org.geocell.repository.jdbi.mappers.InstantMapper
 import main.kotlin.oicnanev.org.geocell.repository.jdbi.mappers.PasswordValidationInfoMapper

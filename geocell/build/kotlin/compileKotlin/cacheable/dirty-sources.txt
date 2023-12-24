@@ -9,6 +9,7 @@
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/pipeline/AuthenticationInterceptor.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/GeocellApplication.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/services/UserService.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/repository/jdbi/JdbiTransaction.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/UserController.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/model/UserHomeCreateOutputModel.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/model/Problem.kt
