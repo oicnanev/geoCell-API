@@ -23,6 +23,7 @@
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/pipeline/AuthenticatedUserArgumentResolver.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/repository/TransactionManager.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/pipeline/RequestTokenProcessor.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/repository/jdbi/mappers/TokenValidationInfoMapper.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/TokenEncoder.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/Uris.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/UserDomainConfig.kt
