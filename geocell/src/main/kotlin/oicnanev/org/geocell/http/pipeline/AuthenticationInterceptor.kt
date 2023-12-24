@@ -17,7 +17,8 @@ class AuthenticationInterceptor(
         response: HttpServletResponse,
         handler: Any
     ): Boolean {
-        if (handler is HandlerMethod && handler.methodParameters.any {
+        if (
+            handler is HandlerMethod && handler.methodParameters.any {
                 it.parameterType == AuthenticatedUser::class.java
             }
         ) {
