@@ -7,7 +7,7 @@ import main.kotlin.oicnanev.org.geocell.domain.entities.Token
 import main.kotlin.oicnanev.org.geocell.domain.entities.User
 
 interface UserRepository {
-    fun storeUser(username: String, passwordVAlidation: PasswordValidationInfo): Int
+    fun storeUser(username: String, passwordValidation: PasswordValidationInfo): Int
 
     fun getUserById(id: Int): User?
 

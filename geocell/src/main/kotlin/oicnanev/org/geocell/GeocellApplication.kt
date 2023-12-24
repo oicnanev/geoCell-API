@@ -1,11 +1,11 @@
 package main.kotlin.oicnanev.org.geocell
 
+import kotlinx.datetime.Clock
 import main.kotlin.oicnanev.org.geocell.domain.Sha256TokenEncoder
 import main.kotlin.oicnanev.org.geocell.domain.UserDomainConfig
 import main.kotlin.oicnanev.org.geocell.http.pipeline.AuthenticatedUserArgumentResolver
 import main.kotlin.oicnanev.org.geocell.http.pipeline.AuthenticationInterceptor
 import main.kotlin.oicnanev.org.geocell.repository.jdbi.configureWithAppRequirements
-import kotlinx.datetime.Clock
 import org.jdbi.v3.core.Jdbi
 import org.postgresql.ds.PGSimpleDataSource
 import org.springframework.boot.autoconfigure.SpringBootApplication
