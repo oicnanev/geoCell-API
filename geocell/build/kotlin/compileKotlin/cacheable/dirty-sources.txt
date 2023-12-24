@@ -1,6 +1,7 @@
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/Sha256TokenEncoder.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/model/UserTokenCreateOutputModel.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/http/model/UserCreateTokenInputModel.kt
+/home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/repository/jdbi/JdbiTransactionManager.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/UserDomain.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/utils/Either.kt
 /home/ubuntu/geoCell-API/geocell/src/main/kotlin/oicnanev/org/geocell/domain/AuthenticatedUser.kt
