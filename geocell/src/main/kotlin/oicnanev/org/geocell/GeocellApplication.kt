@@ -19,6 +19,46 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer
 import kotlin.time.Duration.Companion.hours
 
 @SpringBootApplication
-class GeocellApplication
+class GeocellApplication {
+    @Bean
+    fun jdbi() = Jdbi.create(
+        PGSimpleDataSource().apply {
+            setURL(Environment.getDbUrl())
+        }
+    ).configureWithAppRequirements()
 
-fun main(args: Array<String>) { runApplication<GeocellApplication>(*args) }
+    @Bean
+    fun passwordEncoder() = BCryptPasswordEncoder()
+
+    @Bean
+    fun tokenGenerator() = Sha256TokenEncoder()
+
+    @Bean
+    fun clock() = Clock.System
+
+    @Bean
+    fun userDomainConfig() = UserDomainConfig(
+        tokenSizeInBytes = 256 / 8,
+        tokenTtl = 24.hours,
+        tokenRollingTtl = 1.hours,
+        maxTokensPerUser = 3
+    )
+}
+
+@Configuration
+class PipelineConfigurer(
+    val authenticationInterceptor: AuthenticationInterceptor,
+    val authenticatedUserArgumentResolver: AuthenticatedUserArgumentResolver
+) : WebMvcConfigurer {
+    override fun addInterceptors(registry: InterceptorRegistry) {
+        registry.addInterceptor(authenticationInterceptor)
+    }
+
+    override fun addArgumentResolvers(resolvers: MutableList<HandlerMethodArgumentResolver>) {
+        resolvers.add(authenticatedUserArgumentResolver)
+    }
+}
+
+fun main(args: Array<String>) {
+    runApplication<GeocellApplication>(*args)
+}
