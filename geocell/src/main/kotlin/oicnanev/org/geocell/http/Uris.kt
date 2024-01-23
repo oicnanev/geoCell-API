@@ -19,4 +19,20 @@ object Uris {
         fun byId(id: Int) = UriTemplate(GET_BY_ID).expand(id)
         fun home(): URI = URI(HOME)
     }
+
+    object Search {
+        const val SIMPLE = "$PREFIX/search"
+        const val ADVANCED = "$PREFIX/search/advanced"
+        const val GEO = "$PREFIX/search/geo"
+        const val ADMINISTRATIVE = "$PREFIX/search/administrative"
+        const val NETWORK = "$PREFIX/search/network"
+    }
+
+    object Operators {
+        const val OPERATORS = "$PREFIX/operators"
+    }
+
+    object Apps {
+        const val APPS = "$PREFIX/apps"
+    }
 }
